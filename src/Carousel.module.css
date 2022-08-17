@@ -1,3 +1,17 @@
 :root {
   --teal-brand: #00a790;
 }
+
+.carouselWrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 1440px;
+  padding: 0 48px;
+
+  margin: auto;
+}
