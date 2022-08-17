@@ -83,6 +83,9 @@ export const Carousel = ({ offers }: CarouselProps) => {
     }
   }, [])
 
+  const previousButtonHidden = carouselState === 'first' ? styles.hidden : ''
+  const nextButtonHidden = carouselState === 'last' ? styles.hidden : ''
+
   return (
     <section ref={sectionRef} className={styles.carouselWrapper}>
       <div className={styles.carouselHeader}>
@@ -97,7 +100,7 @@ export const Carousel = ({ offers }: CarouselProps) => {
 
       <button
         disabled={isScrolling || carouselState === 'first'}
-        className={`${styles.button} ${styles.left}`}
+        className={`${styles.button} ${styles.left} ${previousButtonHidden}`}
         onClick={() => moveCarousel('left')}
         aria-label='Previous slide'
         title='Previous slide'
@@ -108,7 +111,7 @@ export const Carousel = ({ offers }: CarouselProps) => {
 
       <button
         disabled={isScrolling || carouselState === 'last'}
-        className={`${styles.button} ${styles.right}`}
+        className={`${styles.button} ${styles.right} ${nextButtonHidden}`}
         onClick={() => moveCarousel('right')}
         aria-label='Next slide'
         title='Next slide'
