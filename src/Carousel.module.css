@@ -91,3 +91,8 @@
   top: -16px;
   left: max(max(-75vw, -80vw), -85%);
 }
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
