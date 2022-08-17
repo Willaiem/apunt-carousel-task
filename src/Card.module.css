@@ -94,3 +94,8 @@
 .tag.auctionTag {
   color: var(--purple-bidding-text);
 }
+
+.details .location {
+  display: flex;
+  gap: 6px;
+}
