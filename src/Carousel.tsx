@@ -8,11 +8,33 @@ type CarouselProps = {
   offers: Offer[]
 }
 
+type CarouselState = 'first' | 'between' | 'last'
+
+const SCROLL_LEFT_THRESHOLD = 250
 const DELAY_BETWEEN_SCROLLS = 250
 
 export const Carousel = ({ offers }: CarouselProps) => {
   const [isScrolling, setIsScrolling] = useState(false)
+  const [carouselState, setCarouselState] = useState<CarouselState>('first')
   const offersRef = useRef<HTMLDivElement>(null)
+
+  const setButtons = () => {
+    if (!offersRef.current) return
+
+    const SCROLL_LEFT_MAX = offersRef.current.scrollWidth - offersRef.current.clientWidth
+
+    if (offersRef.current.scrollLeft <= SCROLL_LEFT_THRESHOLD) {
+      setCarouselState('first')
+      return
+    }
+
+    if (offersRef.current.scrollLeft >= SCROLL_LEFT_MAX - SCROLL_LEFT_THRESHOLD) {
+      setCarouselState('last')
+      return
+    }
+
+    setCarouselState('between')
+  }
 
   const moveCarousel = (to: 'left' | 'right') => {
     if (!offersRef.current) return
@@ -24,6 +46,7 @@ export const Carousel = ({ offers }: CarouselProps) => {
     setIsScrolling(true)
     const timeout = setTimeout(() => {
       setIsScrolling(false)
+      setButtons()
       clearTimeout(timeout)
     }, DELAY_BETWEEN_SCROLLS)
   }
@@ -41,7 +64,7 @@ export const Carousel = ({ offers }: CarouselProps) => {
       </div>
 
       <button
-        disabled={isScrolling}
+        disabled={isScrolling || carouselState === 'first'}
         className={`${styles.button} ${styles.left}`}
         onClick={() => moveCarousel('left')}
         aria-label='Previous slide'
@@ -52,7 +75,7 @@ export const Carousel = ({ offers }: CarouselProps) => {
       </button>
 
       <button
-        disabled={isScrolling}
+        disabled={isScrolling || carouselState === 'last'}
         className={`${styles.button} ${styles.right}`}
         onClick={() => moveCarousel('right')}
         aria-label='Next slide'
