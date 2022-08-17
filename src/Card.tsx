@@ -5,6 +5,27 @@ type CardProps = {
   offer: Offer
 }
 
+type OfferTypeProps = {
+  sellingMode: Offer['sellingMode']
+}
+
+
+const OfferTag = ({ sellingMode: { advertisement, auction, buyNow } }: OfferTypeProps) => {
+  if (advertisement) {
+    return <p className={`${styles.tag} ${styles.advertisementTag}`}>Ogłoszenie</p>
+  }
+
+  if (auction) {
+    return <p className={`${styles.tag} ${styles.auctionTag}`}>Licytacja</p>
+  }
+
+  if (buyNow) {
+    return <p className={`${styles.tag} ${styles.buyNowTag}`}>Kup teraz</p>
+  }
+
+  return null
+}
+
 export const Card = ({ offer }: CardProps) => {
   const { images: [img], sellingMode, view: { url } } = offer
   const { location: { label: city } } = offer.allegroLocally
@@ -24,7 +45,7 @@ export const Card = ({ offer }: CardProps) => {
           <h4 className={styles.title}>{offer.name}</h4>
           <div className={styles.tagWrapper}>
             <p>price tag</p>
-            <p>offer tag</p>
+            <OfferTag sellingMode={sellingMode} />
           </div>
           <div className={styles.location}>
             <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
