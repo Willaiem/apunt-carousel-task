@@ -78,33 +78,6 @@
   transition: all 0.5s;
 }
 
-.button .arrowSkeleton {
-  position: absolute;
-  display: block;
-  width: 10px;
-  height: 10px;
-}
-
-.button .leftArrowTop {
-  border-bottom: 3px solid black;
-  transform: rotate(45deg);
-}
-
-.button .leftArrowBottom {
-  border-top: 3px solid black;
-  transform: rotate(-45deg);
-}
-
-.button .rightArrowTop {
-  border-bottom: 3px solid black;
-  transform: rotate(-45deg);
-}
-
-.button .rightArrowBottom {
-  border-top: 3px solid black;
-  transform: rotate(45deg);
-}
-
 .button .right {
   top: -16px;
   right: max(max(-75vw, -80vw), -85%);
