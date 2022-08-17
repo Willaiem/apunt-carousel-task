@@ -1,9 +1,9 @@
-import { Offer } from "./types"
+import { LocationIcon } from "../../../components/ui/LocationIcon"
+import { HeartIcon } from "../../../components/ui/HeartIcon"
+import { OfferTag } from "../../../components/logic/OfferTag/OfferTag"
+import { PriceTag } from "../../../components/logic/PriceTag/PriceTag"
+import { Offer } from "../../../types"
 import styles from "./Card.module.css"
-import { LocationIcon } from "./components/ui/LocationIcon"
-import { HeartIcon } from "./components/ui/HeartIcon"
-import { OfferTag } from "./components/logic/OfferTag/OfferTag"
-import { PriceTag } from "./components/logic/PriceTag/PriceTag"
 
 type CardProps = {
   offer: Offer
