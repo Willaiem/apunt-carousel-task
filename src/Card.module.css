@@ -51,7 +51,12 @@
 
   padding: 16px 8px;
   height: 50%;
-  
+
   background-color: var(--card-background);
   border-radius: 0px 0px 8px 8px;
+}
+
+.details .title {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
