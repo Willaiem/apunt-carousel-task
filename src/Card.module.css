@@ -2,7 +2,8 @@
   --card-background: #fff;
   --grays-secondary-text: #767676;
   --blue-advertisement-text: #1b59ac;
-  --purple-bidding-text: #6256b1
+  --purple-bidding-text: #6256b1;
+  --orange-buy-now-text: #FF5A00;
 }
 
 .cardWrapper {
@@ -73,4 +74,23 @@
 .tagWrapper .headPriceTag {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.tagWrapper .tag {
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.tag.buyNowTag {
+  color: var(--orange-buy-now-text);
+}
+
+.tag.advertisementTag {
+  color: var(--blue-advertisement-text);
+}
+
+.tag.auctionTag {
+  color: var(--purple-bidding-text);
 }
