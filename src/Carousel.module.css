@@ -30,6 +30,31 @@
   background-color: var(--carousel-background);
 }
 
+.carouselWrapper .button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 64px;
+  height: 64px;
+
+  background-color: #FFF;
+  opacity: 0.5;
+  border: 1px solid #767676;
+
+  cursor: pointer;
+  visibility: visible;
+
+  transition: all 0.5s;
+}
+
 .carouselWrapper .arrowSkeleton {
   position: absolute;
   display: block;
