@@ -1,4 +1,5 @@
 import { Offer } from "./types"
+import styles from "./Card.module.css"
 type CardProps = {
   offer: Offer
 }
