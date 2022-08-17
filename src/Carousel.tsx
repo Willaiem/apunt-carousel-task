@@ -15,6 +15,24 @@ export const Carousel = ({ offers }: CarouselProps) => {
           <Card key={offer.id} offer={offer} />
         ))}
       </div>
+
+      <button
+        className={`${styles.button} ${styles.left}`}
+        aria-label='Previous slide'
+        title='Previous slide'
+      >
+        <span className={`${styles.arrowSkeleton} ${styles.leftArrowTop}`} />
+        <span className={`${styles.arrowSkeleton} ${styles.leftArrowBottom}`} />
+      </button>
+
+      <button
+        className={`${styles.button} ${styles.right}`}
+        aria-label='Next slide'
+        title='Next slide'
+      >
+        <span className={`${styles.arrowSkeleton} ${styles.rightArrowTop}`} />
+        <span className={`${styles.arrowSkeleton} ${styles.rightArrowBottom}`} />
+      </button>
     </section>
   )
 }
