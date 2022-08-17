@@ -4,3 +4,12 @@
   --blue-advertisement-text: #1b59ac;
   --purple-bidding-text: #6256b1
 }
+
+.cardWrapper {
+  min-width: 254px;
+  min-height: 432px;
+  max-width: 254px;
+  max-height: 432px;
+
+  filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.16));
+}
