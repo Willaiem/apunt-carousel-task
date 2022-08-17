@@ -2,13 +2,10 @@ import { Offer } from "./types"
 import styles from "./Card.module.css"
 import { LocationIcon } from "./components/ui/LocationIcon"
 import { HeartIcon } from "./components/ui/HeartIcon"
+import { OfferTag } from "./components/logic/OfferTag/OfferTag"
 
 type CardProps = {
   offer: Offer
-}
-
-type OfferTypeProps = {
-  sellingMode: Offer['sellingMode']
 }
 
 type PriceTagProps = {
@@ -43,22 +40,6 @@ const PriceTag = ({ sellingMode }: PriceTagProps) => {
   )
 }
 
-
-const OfferTag = ({ sellingMode: { advertisement, auction, buyNow } }: OfferTypeProps) => {
-  if (advertisement) {
-    return <p className={`${styles.tag} ${styles.advertisementTag}`}>Ogłoszenie</p>
-  }
-
-  if (auction) {
-    return <p className={`${styles.tag} ${styles.auctionTag}`}>Licytacja</p>
-  }
-
-  if (buyNow) {
-    return <p className={`${styles.tag} ${styles.buyNowTag}`}>Kup teraz</p>
-  }
-
-  return null
-}
 
 export const Card = ({ offer }: CardProps) => {
   const { images: [img], sellingMode, view: { url } } = offer
