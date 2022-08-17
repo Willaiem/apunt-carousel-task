@@ -9,6 +9,38 @@ type OfferTypeProps = {
   sellingMode: Offer['sellingMode']
 }
 
+type PriceTagProps = {
+  sellingMode: Offer['sellingMode']
+}
+
+const getPrice = ({ advertisement, auction, buyNow }: Offer['sellingMode']) => {
+  const prices = advertisement?.price ?? auction?.price.current ?? buyNow?.price.sale
+
+  if (!prices) {
+    return null
+  }
+
+  return prices
+}
+
+const PriceTag = ({ sellingMode }: PriceTagProps) => {
+  const price = getPrice(sellingMode)
+
+  if (!price) {
+    return null
+  }
+
+  const { amount } = price
+
+  const [headAmount, tailAmount] = amount.split('.')
+
+  return (
+    <p className={styles.priceTag}>
+      <span className={styles.headPriceTag}>{headAmount}</span>,{tailAmount} zł
+    </p>
+  )
+}
+
 
 const OfferTag = ({ sellingMode: { advertisement, auction, buyNow } }: OfferTypeProps) => {
   if (advertisement) {
@@ -44,7 +76,7 @@ export const Card = ({ offer }: CardProps) => {
         <div className={styles.details}>
           <h4 className={styles.title}>{offer.name}</h4>
           <div className={styles.tagWrapper}>
-            <p>price tag</p>
+            <PriceTag sellingMode={sellingMode} />
             <OfferTag sellingMode={sellingMode} />
           </div>
           <div className={styles.location}>
