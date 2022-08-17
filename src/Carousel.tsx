@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 import { Card } from './Card'
 import { Offer } from './types'
@@ -17,6 +17,7 @@ export const Carousel = ({ offers }: CarouselProps) => {
   const [isScrolling, setIsScrolling] = useState(false)
   const [carouselState, setCarouselState] = useState<CarouselState>('first')
   const offersRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const setButtons = () => {
     if (!offersRef.current) return
@@ -51,8 +52,39 @@ export const Carousel = ({ offers }: CarouselProps) => {
     }, DELAY_BETWEEN_SCROLLS)
   }
 
+  const onWheel = (e: WheelEvent) => {
+    if (isScrolling) return
+
+    const isScrollingUp = e.deltaY < 0
+    if (isScrollingUp) {
+      moveCarousel('left')
+      return;
+    }
+    moveCarousel('right')
+  }
+
+  const addWheelListener = () => {
+    offersRef.current?.addEventListener('wheel', onWheel)
+  }
+
+  const removeWheelListener = () => {
+    offersRef.current?.removeEventListener('wheel', onWheel)
+  }
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+
+    sectionRef.current.addEventListener('mouseenter', addWheelListener)
+    sectionRef.current.addEventListener('mouseleave', removeWheelListener)
+
+    return () => {
+      sectionRef.current?.removeEventListener('mouseenter', addWheelListener)
+      sectionRef.current?.removeEventListener('mouseleave', removeWheelListener)
+    }
+  }, [])
+
   return (
-    <section className={styles.carouselWrapper}>
+    <section ref={sectionRef} className={styles.carouselWrapper}>
       <div className={styles.carouselHeader}>
         <h2 className={styles.carouselHeading}>Wyjątkowe i unikalne</h2>
         <a href="https://allegrolokalnie.pl/">Zobacz więcej</a>
