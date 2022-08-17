@@ -96,3 +96,17 @@
   visibility: hidden;
   opacity: 0;
 }
+
+@media (max-width: 768px) {
+  .carousel {
+    padding: 0;
+  }
+  .offers {
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+
+  .button {
+    display: none;
+  }
+}
