@@ -64,3 +64,13 @@
 .details .tagWrapper {
   margin-bottom: 64px;
 }
+
+.tagWrapper .priceTag {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.tagWrapper .headPriceTag {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
