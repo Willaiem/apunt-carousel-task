@@ -3,43 +3,11 @@ import styles from "./Card.module.css"
 import { LocationIcon } from "./components/ui/LocationIcon"
 import { HeartIcon } from "./components/ui/HeartIcon"
 import { OfferTag } from "./components/logic/OfferTag/OfferTag"
+import { PriceTag } from "./components/logic/PriceTag/PriceTag"
 
 type CardProps = {
   offer: Offer
 }
-
-type PriceTagProps = {
-  sellingMode: Offer['sellingMode']
-}
-
-const getPrice = ({ advertisement, auction, buyNow }: Offer['sellingMode']) => {
-  const prices = advertisement?.price ?? auction?.price.current ?? buyNow?.price.sale
-
-  if (!prices) {
-    return null
-  }
-
-  return prices
-}
-
-const PriceTag = ({ sellingMode }: PriceTagProps) => {
-  const price = getPrice(sellingMode)
-
-  if (!price) {
-    return null
-  }
-
-  const { amount } = price
-
-  const [headAmount, tailAmount] = amount.split('.')
-
-  return (
-    <p className={styles.priceTag}>
-      <span className={styles.headPriceTag}>{headAmount}</span>,{tailAmount} zł
-    </p>
-  )
-}
-
 
 export const Card = ({ offer }: CardProps) => {
   const { images: [img], sellingMode, view: { url } } = offer
