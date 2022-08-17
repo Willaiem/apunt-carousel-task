@@ -10,6 +10,10 @@ type CarouselProps = {
 export const Carousel = ({ offers }: CarouselProps) => {
   return (
     <section className={styles.carouselWrapper}>
+      <div className={styles.carouselHeader}>
+        <h2 className={styles.carouselHeading}>Wyjątkowe i unikalne</h2>
+        <a href="https://allegrolokalnie.pl/">Zobacz więcej</a>
+      </div>
       <div className={styles.offers}>
         {offers.map(offer => (
           <Card key={offer.id} offer={offer} />
