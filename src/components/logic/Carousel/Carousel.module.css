@@ -16,7 +16,7 @@
   margin: auto;
 }
 
-.carouselWrapper .carouselHeader {
+.carouselHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +39,7 @@
   text-transform: uppercase;
 }
 
-.carouselWrapper .offers {
+.offers {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -78,12 +78,12 @@
   transition: all 0.5s;
 }
 
-.button .right {
+.right {
   top: -16px;
   right: max(max(-75vw, -80vw), -85%);
 }
 
-.button .left {
+.left {
   top: -16px;
   left: max(max(-75vw, -80vw), -85%);
 }
