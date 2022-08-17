@@ -22,9 +22,14 @@
   align-items: center;
 
   width: 100%;
-  
+
   margin: 24px 0;
   padding: 0 16px;
+}
+
+.carouselHeader h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
 }
 
 
