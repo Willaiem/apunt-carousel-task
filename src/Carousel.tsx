@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
 
-import { Card } from './Card'
+
+import { Card } from './components/logic/Card/Card'
 import { Offer } from './types'
 import styles from './Carousel.module.css'
+
 
 type CarouselProps = {
   offers: Offer[]
