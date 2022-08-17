@@ -99,3 +99,9 @@
   display: flex;
   gap: 6px;
 }
+
+.location p {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--grays-secondary-text);
+}
