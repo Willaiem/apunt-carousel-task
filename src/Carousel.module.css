@@ -32,6 +32,12 @@
   font-weight: 600;
 }
 
+.carouselHeader a {
+  color: var(--teal-brand);
+  font-size: .875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 
 .carouselWrapper .offers {
   position: relative;
