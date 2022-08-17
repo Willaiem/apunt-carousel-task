@@ -1,3 +1,4 @@
+import { Offer } from "./types"
 type CardProps = {
   offer: Offer
 }
