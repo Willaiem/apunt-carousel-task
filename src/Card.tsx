@@ -63,7 +63,7 @@ export const Card = ({ offer }: CardProps) => {
   const { location: { label: city } } = offer.allegroLocally
 
   return (
-    <article className={styles.card}>
+    <article className={styles.cardWrapper}>
       <a href={url} aria-label={offer.name}>
         <div className={styles.imageWrapper}>
           <img className={styles.image} src={img.url} alt={img.alt} />
