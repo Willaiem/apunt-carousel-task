@@ -30,29 +30,29 @@
   background-color: var(--carousel-background);
 }
 
-.arrowSkeleton {
+.carouselWrapper .arrowSkeleton {
   position: absolute;
   display: block;
   width: 10px;
   height: 10px;
 }
 
-.leftArrowTop {
+.carouselWrapper .leftArrowTop {
   border-bottom: 3px solid black;
   transform: rotate(45deg);
 }
 
-.leftArrowBottom {
+.carouselWrapper .leftArrowBottom {
   border-top: 3px solid black;
   transform: rotate(-45deg);
 }
 
-.rightArrowTop {
+.carouselWrapper .rightArrowTop {
   border-bottom: 3px solid black;
   transform: rotate(-45deg);
 }
 
-.rightArrowBottom {
+.carouselWrapper.rightArrowBottom {
   border-top: 3px solid black;
   transform: rotate(45deg);
 }
