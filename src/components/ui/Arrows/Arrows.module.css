@@ -1,0 +1,26 @@
+.arrowSkeleton {
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+.leftArrowTop {
+  border-bottom: 3px solid black;
+  transform: rotate(45deg);
+}
+
+.leftArrowBottom {
+  border-top: 3px solid black;
+  transform: rotate(-45deg);
+}
+
+.rightArrowTop {
+  border-bottom: 3px solid black;
+  transform: rotate(-45deg);
+}
+
+.rightArrowBottom {
+  border-top: 3px solid black;
+  transform: rotate(45deg);
+}
