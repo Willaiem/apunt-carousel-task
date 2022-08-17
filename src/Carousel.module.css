@@ -55,29 +55,29 @@
   transition: all 0.5s;
 }
 
-.carouselWrapper .arrowSkeleton {
+.button .arrowSkeleton {
   position: absolute;
   display: block;
   width: 10px;
   height: 10px;
 }
 
-.carouselWrapper .leftArrowTop {
+.button .leftArrowTop {
   border-bottom: 3px solid black;
   transform: rotate(45deg);
 }
 
-.carouselWrapper .leftArrowBottom {
+.button .leftArrowBottom {
   border-top: 3px solid black;
   transform: rotate(-45deg);
 }
 
-.carouselWrapper .rightArrowTop {
+.button .rightArrowTop {
   border-bottom: 3px solid black;
   transform: rotate(-45deg);
 }
 
-.carouselWrapper.rightArrowBottom {
+.button .rightArrowBottom {
   border-top: 3px solid black;
   transform: rotate(45deg);
 }
